@@ -25,14 +25,18 @@ const MoviePage = async ({ params }: { params: { id: string } }) => {
             {movie.title || movie.name}
           </h2>
           <p className="text-lg mb-3">{movie.overview}</p>
-          <p className="mb-3">
-            <span className="font-semibold mr-1">Date released:</span>
-            {movie.release_date || movie.first_air_date}
-          </p>
-          <p className="mb-3">
-            <span className="font-semibold mr-1">Vote count:</span>
-            {movie.vote_count}
-          </p>
+          {(movie.release_date || movie.first_air_date) && (
+            <p className="mb-3">
+              <span className="font-semibold mr-1">Date released:</span>
+              {movie.release_date || movie.first_air_date}
+            </p>
+          )}
+          {movie.vote_count && (
+            <p className="mb-3">
+              <span className="font-semibold mr-1">Vote count:</span>
+              {movie.vote_count}
+            </p>
+          )}
         </div>
       </div>
     </div>
