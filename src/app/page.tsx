@@ -16,7 +16,7 @@ const HomePage = async ({
 
   const data = await res.json();
   if (!res.ok) {
-    throw new Error('Failed to fetch');
+    throw new Error('Failed to fetch data');
   }
 
   console.log(data.results);
