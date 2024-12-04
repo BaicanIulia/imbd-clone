@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from 'next';
+import './globals.css';
+import { Header } from '@/components/Header';
 
 export const metadata: Metadata = {
-  title: "IMDB Clone",
-  description: "This is a movie database clone",
+  title: 'IMDB Clone',
+  description: 'This is a movie database clone',
 };
 
 export default function RootLayout({
@@ -14,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Header />
         {children}
       </body>
     </html>
