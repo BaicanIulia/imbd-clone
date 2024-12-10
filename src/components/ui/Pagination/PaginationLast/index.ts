@@ -1,0 +1,1 @@
+export { PaginationLast } from './component';

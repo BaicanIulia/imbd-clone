@@ -1,0 +1,1 @@
+export { PaginationFirst } from './component';
