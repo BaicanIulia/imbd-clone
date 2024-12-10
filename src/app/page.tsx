@@ -1,3 +1,4 @@
+import { SearchBar } from '@/components/SearchBar';
 import { MoviesGrid } from '@/features/MoviesGrid';
 import { NavBar } from '@/features/NavBar';
 
@@ -24,6 +25,7 @@ const HomePage = async ({
   return (
     <div>
       <NavBar />
+      <SearchBar />
       <MoviesGrid movies={data.results} />
     </div>
   );
