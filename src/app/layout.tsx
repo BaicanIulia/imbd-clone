@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Header } from '@/features/Header';
 import { Providers } from './providers';
+import { NavBar } from '@/features/NavBar';
+import { SearchBar } from '@/components/SearchBar';
 
 export const metadata: Metadata = {
   title: 'IMDB Clone',
@@ -18,6 +20,8 @@ const RootLayout = ({
       <body>
         <Providers>
           <Header />
+          <NavBar />
+          <SearchBar />
           {children}
         </Providers>
       </body>

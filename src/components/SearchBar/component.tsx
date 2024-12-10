@@ -9,7 +9,8 @@ export const SearchBar = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    router.push(`search/${searchTerm}`);
+    router.push(`/search/${searchTerm}`);
+    setSearchTerm('');
   };
 
   return (

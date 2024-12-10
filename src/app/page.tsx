@@ -1,6 +1,4 @@
-import { SearchBar } from '@/components/SearchBar';
 import { MoviesGrid } from '@/features/MoviesGrid';
-import { NavBar } from '@/features/NavBar';
 
 const API_KEY = process.env.API_KEY;
 
@@ -20,12 +18,8 @@ const HomePage = async ({
     throw new Error('Failed to fetch data');
   }
 
-  console.log(data.results);
-
   return (
     <div>
-      <NavBar />
-      <SearchBar />
       <MoviesGrid movies={data.results} />
     </div>
   );
