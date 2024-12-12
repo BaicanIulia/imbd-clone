@@ -1,5 +1,6 @@
 import { PaginationSection } from '@/components/PaginationSection';
 import { MoviesGrid } from '@/features/MoviesGrid';
+import { getMovies } from '@/services/movies';
 
 const API_KEY = process.env.API_KEY;
 const POSTS_PER_PAGE = 20;
@@ -12,14 +13,7 @@ const HomePage = async ({
   const genre = searchParams.genre || 'fetchTrending';
   const page = parseInt(searchParams?.page || '1', 10);
 
-  const res = await fetch(
-    `https://api.themoviedb.org/3${genre === 'fetchTopRated' ? '/movie/top_rated' : '/trending/all/week'}?api_key=${API_KEY}&language=en_US&page=${page}`,
-  );
-
-  const data = await res.json();
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
+  const data = await getMovies(genre, page);
 
   return (
     <div>

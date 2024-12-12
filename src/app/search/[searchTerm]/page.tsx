@@ -1,23 +1,19 @@
 import { PaginationSection } from '@/components/PaginationSection';
 import { MoviesGrid } from '@/features/MoviesGrid';
+import { searchMovies } from '@/services/movies';
 
 const POSTS_PER_PAGE = 8;
+
 type Props = {
   params: Record<string, string>;
   searchParams: Record<string, string>;
 };
+
 export const SearchPage = async ({ params, searchParams }: Props) => {
   const page = parseInt(searchParams?.page || '1', 10);
   const search = params?.searchTerm;
 
-  const res = await fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${search}&language=en_US&page=1&include_adult=false&page=${page}`,
-  );
-
-  const data = await res.json();
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
+  const data = await searchMovies(search, page);
 
   return (
     <div>
